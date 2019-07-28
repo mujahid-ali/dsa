@@ -1,2 +1,2 @@
 # dsa
-This repository contains dsa problems solved in different competitions.
+This repository contains dsa problems solved in different competitions in java.
