@@ -8,8 +8,10 @@ class GFG{
     int m = str1.length();
     int n = str2.length();
 
-    int i,j,count=0;
+    int i,j;
     int LCSS[][]= new int[m+1][n+1];
+    int len = 0;
+    int row =0, col = 0;
     for(i=0;i<m;i++)
       LCSS[i][0] = 0;
     for(j=0;j<n;j++)
@@ -19,7 +21,11 @@ class GFG{
         for(j=1; j<=n; j++){
           if( (str1.charAt(i-1) == str2.charAt(j-1)) ){
             LCSS[i][j] = LCSS[i-1][j-1]+ 1;
-            count++;
+            if(len<LCSS[i][j]){
+              len = LCSS[i][j];
+              row = i;
+              col = j;
+            }
           }
           else{
             LCSS[i][j] = 0;
@@ -27,7 +33,7 @@ class GFG{
 
         }
       }
-    System.out.println(count);
+    System.out.println(len);
   }
 
   public static void main(String[] args)throws java.lang.Exception{
