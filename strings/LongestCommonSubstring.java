@@ -30,10 +30,27 @@ class GFG{
           else{
             LCSS[i][j] = 0;
           }
-
         }
       }
-    System.out.println(len);
+    if(len == 0)
+      return;
+    else
+      System.out.println(len);
+
+    String sb = "";
+    while( LCSS[row][col] !=0 ){
+    sb = str1.charAt(row-1) + sb;
+    row--; col--;
+  }
+
+    /*
+    StringBuffer sb = new StringBuffer();
+    while(LCSS[row][col] != 0){
+      sb.insert(0,str2.charAt(col-1));//sb.append(str1.charAt(row));
+      col--;row--;
+    }
+    */
+    System.out.println(sb);
   }
 
   public static void main(String[] args)throws java.lang.Exception{
