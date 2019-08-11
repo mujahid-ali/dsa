@@ -81,8 +81,8 @@ class GFG{
     while(t-->0){
       String str = br.readLine();
 
-      //int max = DP(str);
-      LP(str);
+      int max = DP(str);
+      //LP(str);
       //System.out.println(max);
 
     }
