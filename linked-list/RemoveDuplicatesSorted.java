@@ -1,35 +1,23 @@
-class GfG{
-	public static void zigzag(Node phead){
-	    Node prev = phead;
-	    Node temp = phead.next;
-	    int count = 0;
-	    while(temp != null){
-	        if(count == 0){
-	            if(temp.data < prev.data)
-	                swap(temp,prev);
-	           count++;
-	        }
-	        else{
-	            if(temp.data > prev.data)
-	                swap(temp,prev);
-	           count--;
-	        }
+class GfG
+{
+    // head: head node
+    Node removeDuplicates(Node root)
+    {
+	// Your code here
+	Node prev = root;
+	Node temp = root.next;
+	while(temp != null ){
+	    if(prev.data == temp.data){
+	        prev.next = temp.next;
 	        temp = temp.next;
-	        prev = prev.next;
-	    }
-	    temp = phead;
-	    while(temp != null){
-	        System.out.print(temp.data + " ");
+	        }
+	    else{
+	        prev = temp;
 	        temp = temp.next;
 	    }
-	    System.out.println();
 
+	    }
+	 return root;
     }
 
-
-    public static void swap(Node a, Node b){
-        int x = a.data;
-        a.data = b.data;
-        b.data = x;
-    }
 }
