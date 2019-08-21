@@ -8,7 +8,7 @@ class GfG
          List<Integer> arr = new ArrayList<>();
          Node temp = head.next;
          Node prev = head;
-         int i = 0;
+         arr.add(prev.data);
          while(temp != null){
              if(arr.contains(temp.data)){
                  prev.next = temp.next;
