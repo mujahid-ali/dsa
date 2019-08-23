@@ -1,0 +1,8 @@
+Possible words from Phone digits
+Maximum of all subarrays of size k
+Type of array
+Equilibrium point
+Pythagorean Triplet 
+Subarray with given sum
+Longest Common Increasing Subsequence
+Longest Common Prefix in an Array
