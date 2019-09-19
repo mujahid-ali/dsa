@@ -91,39 +91,62 @@ class MergeLL
 }*/
 /*a is an array of Nodes of the heads of linked lists
   and N is size of array a*/
-class Merge
-{
-    Node mergeKList(Node[]a,int N)
-    {
-     //Add your code here.
-     int n = a.length;
-     Node head = null;
-     Node head1 = head;
-     Node temp1 = null;
-     Node temp2 = null;
-     int i =0;
-     for(i=0; i<n; i+2){
+  class Merge
+  {
+      Node mergeKList(Node[]a,int N)
+      {
+       //Add your code here.
+       int n = a.length;
+       Node head = null;
+       Node temp1 = null;
+       Node temp2 = null;
+       Node ptr = null;
+       Node result = null;
+       int i =0;
+       for(i=0; i<n; i++){
 
-         temp1 = arr[i];
-         temp2 = arr[i+1];
+           temp1 = head;
+           temp2 = a[i];
 
-         while(temp1 !=null && temp2 != null){
-             if(temp1.data <= temp2.data){
-                 head.next = temp1;
-                 temp1 = temp1.next
-             }else{
-                 head.next = temp2;
-             }
+           if(head == null){
+             head = temp2;
+             continue;
+           }
+           else if(temp2 == null){
+             continue;
+           }
+           if(temp1.data <= temp2.data){
+           ptr = temp1;
+           head = temp1;
+           temp1 = temp1.next;
          }
-         while(temp1 != null){
-             head.next = temp1;
-             temp1 = temp1.next;
+         else{
+           ptr = temp2;
+           head = temp2;
+           temp2 = temp2.next;
          }
-         while(temp2 ! = null){
-             head.next = temp2;
-             temp2 = temp2.next;
-         }
-     }
-     return head1;
-    }
-}
+           while(temp1 !=null && temp2 != null){
+               if(temp1.data <= temp2.data){
+                   ptr.next = temp1;
+                   ptr = ptr.next;
+                   temp1 = temp1.next;
+               }else{
+                   ptr.next = temp2;
+                   ptr = ptr.next;
+                   temp2 = temp2.next;
+               }
+           }
+           while(temp1 != null){
+               ptr.next = temp1;
+               ptr = ptr.next;
+               temp1 = temp1.next;
+           }
+           while(temp2 != null){
+               ptr.next = temp2;
+               ptr = ptr.next;
+               temp2 = temp2.next;
+           }
+       }
+       return head;
+      }
+  }
