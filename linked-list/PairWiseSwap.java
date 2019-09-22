@@ -4,28 +4,28 @@ class GfG
     {
 
        // add your code here
-       Node temp1 = node;
-       Node temp2 = null;
-       Node head = node;
-       if(temp1.next != null){
-         temp2 = node.next;
-         head = temp2;
-       }
-       else{
+       if(node == null || node.next == null){
          return node;
        }
 
-       while(temp1 != null ){
-         temp1.next = temp2.next;
-         temp2.next = temp1;
-         if(temp1.next != null){
-         temp1 = temp1.next;
-         temp2 = temp1.next;
+       Node prev = node;
+       Node curr = node.next;
+
+       node = curr;
+
+       while(true ){
+         Node temp = curr.next;
+         curr.next = prev;
+
+         if(temp == null || temp.next == null ){
+           prev.next = temp;
+           break;
          }
-         else{
-             break;
-         }
+         prev.next = temp.next;
+
+         prev = temp;
+         curr = temp.next;
        }
-    return head;
+    return node;
     }
 }
