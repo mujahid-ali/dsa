@@ -28,10 +28,10 @@ class GFG{
     while(t-->0){
       int n = Integer.parseInt(br.readLine().trim());
       String str[] = br.readLine().split(" ");
-      int arr[] = new int[n];
+      Long arr[] = new Long[n];
 
       for(int i =0; i<n; i++){
-        arr[i] = Integer.parseInt(str[i]);
+        arr[i] = Long.parseLong(str[i]);
       }
 
       nge(arr,n);
@@ -39,27 +39,29 @@ class GFG{
     }
   }
 
-  static void nge(int arr[], int n){
-    Stack<Integer> stack = new Stack<>();
-    int ans[] = new int[n];
-    int i,next,element;
+  static void nge(Long arr[], int n){
+    Stack<Long> stack = new Stack<>();
+    Long ans[] = new Long[n];
+    int i;
 
-    stack.push(arr[0]);
-    for(i=1; i<n; i++){
+    //stack.push(arr[0]);
+    for(i=n-1; i>=0; i--){
       while( !stack.isEmpty() && arr[i]>stack.peek()){
         //System.out.print(arr[i] + " ");
-        ans[i-1] = arr[i];
         stack.pop();
         }
-
-        //else{
+        if(stack.isEmpty()){
+            ans[i] = Long.valueOf(-1);
+        }else{
+            ans[i] = stack.peek();
+        }
+        //ans[i] = stack.isEmpty() ? -1 : stack.peek();
           stack.push(arr[i]);
-        //}
+
     }
 
-    while(!stack.isEmpty()){
-      System.out.print("-1 ");
-      stack.pop();
+    for(i = 0; i<n; i++ ){
+      System.out.print(ans[i] + " ");
     }
   }
 }
