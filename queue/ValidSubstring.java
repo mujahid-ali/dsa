@@ -1,4 +1,18 @@
 
+/*
+Given a string S consisting of opening and closing parenthesis '(' and ')'.
+Find length of the longest valid parenthesis substring.
+Input:
+2
+((()
+)()())
+
+Output:
+2
+4
+
+*/
+
 import java.io.*;
 import java.util.*;
 import java.lang.*;
