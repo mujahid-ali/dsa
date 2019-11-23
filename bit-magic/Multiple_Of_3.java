@@ -1,5 +1,5 @@
 
-
+//100100000111111101010010010011010101110110
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -24,8 +24,9 @@ class GFG {
           }
           }
       }
+			//System.out.println(" odd = "+odd + "even = " +even);
       int res = Math.abs(even-odd);
-      if(res == 0)
+      if(res%3 == 0)
         System.out.println("1");
       else
         System.out.println("0");
