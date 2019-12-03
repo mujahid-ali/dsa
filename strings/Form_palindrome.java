@@ -42,7 +42,7 @@ class GFG {
     for(gap = 1; gap<n; ++gap){
       for(l=0, h=gap; h<n; ++h,++l){
         dp[l][h] = (str.charAt(l) == str.charAt(h))?
-                    dp[l+1][h] : (Integer.min(dp[l][h-1],dp[l+1][h]) + 1);
+                    dp[l+1][h-1] : (Integer.min(dp[l][h-1],dp[l+1][h]) + 1);
 
       }
     }
